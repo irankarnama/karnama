@@ -10,4 +10,4 @@ Karnama, an AI-based smart dashboard, covers the following seven layers in its f
 7- What-IF Dashboard Layer.<br>
 <br>
 This project is open-source and provided under the GPL3 license. You are free to use it in educational, research, and commercial projects or even sell it under this license.
-for more information you could check https://sain.ir<br>
+for more information you could check https://irankarnama.com<br>
