@@ -1,7 +1,6 @@
-# Project Name: Database to Elasticsearch Search with Django Template Visualization
-
-##discussion
+# Project Name: Database to Elasticsearch Search with Django Template Visualization.
 Please ask your questions in the discussion section.
+
 
 ## Overview
 This project is designed to retrieve data from Elasticsearch and visualize it using Django. It retrieves and visualizes data using a Django template and visualizations. Each HTML file includes explanations for inventory, finance, and sales data.
