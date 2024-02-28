@@ -1,0 +1,259 @@
+{% extends 'layouts/base-rtl.html' %}
+{% load static %}
+{% load admin_soft %}
+<html lang="en">
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <title>Document</title>
+</head>
+<body>
+
+
+        <div class="row removable">
+            <div class="row removable">
+                <H4>تعداد کالاهای در آستانه خرید در هر انبار</H4>
+        <div class="col-xl-3 col-sm-3">
+            <div class="card mb-4">
+                <div class="card-body p-3">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="numbers">
+                                <p class="text-sm mb-0 text-capitalize font-weight-bold">انبار برنج و ادوبه جات</p>
+                                <h5 class="font-weight-bolder mb-0">
+                                    ۷۷
+
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="col-4 text-end">
+                            <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-3">
+            <div class="card mb-4">
+                <div class="card-body p-3">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="numbers">
+                                <p class="text-sm mb-0 text-capitalize font-weight-bold">انبار ظروف بسته بندي</p>
+                                <h5 class="font-weight-bolder mb-0">
+                                    ۲۳
+
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="col-4 text-end">
+                            <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+          <div class="col-xl-3 col-sm-3">
+            <div class="card mb-4">
+                <div class="card-body p-3">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="numbers">
+                                <p class="text-sm mb-0 text-capitalize font-weight-bold">انبار گوشت و مرغ(سردخانه2)</p>
+                                <h5 class="font-weight-bolder mb-0">
+                                    ۲۱
+
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="col-4 text-end">
+                            <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-3">
+            <div class="card mb-4">
+                <div class="card-body p-3">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="numbers">
+                                <p class="text-sm mb-0 text-capitalize font-weight-bold">انبار نوشیدنی و صیفیجات(سردخانه 2)</p>
+                                <h5 class="font-weight-bolder mb-0">
+                                    ۱۸
+
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="col-4 text-end">
+                            <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+            <div class="col-lg-12">
+                <div class="card mb-4">
+                    <div class="card-header pb-0">
+                        <h6 style="font-size: 1.5rem; margin-bottom: 20px">چی بخریم تا خط تولید نخوابیده</h6>
+                    </div>
+                    <div class="card-body px-0 pt-0 pb-2">
+                        <div class="table-responsive p-0 " >
+
+                            <table id="example" class="table align-items-center justify-content-center mb-0 display" style="width:100%; text-align: center; align-content: center">
+                            <thead>
+                            <tr>
+                                <th style="text-align: center">#</th>
+                                <th style="text-align: center">نام انبار</th>
+                                <th style="text-align: center">شماره کالا</th>
+                                <th style="text-align: center">نام کالا</th>
+                                <th style="text-align: center">تعداد</th>
+                                <th style="text-align: center">واحد</th>
+                                <th style="text-align: center">هزینه مور دنیاز</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for extra,anbar, id, name, num, unit, price in depletion %}
+                            <tr>
+                                <td class="text-sm font-weight-bold mb-0">{{extra| persian_int}}</td>
+                                <td class="text-sm font-weight-bold mb-0">{{anbar}}</td>
+                                <td class="text-sm font-weight-bold mb-0">{{id|persian_int}}</td>
+                                <td class="text-sm font-weight-bold mb-0">{{name}}</td>
+                                <td class="text-sm font-weight-bold mb-0">{{num|persian_int}}</td>
+                                <td class="text-sm font-weight-bold mb-0">{{unit}}</td>
+                                <td class="text-sm font-weight-bold mb-0">{{price|persian_int}}</td>
+
+                                {% endfor %}
+                            </tr>
+                            </tbody>
+
+                            </table>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+{% endblock content %}
+{% block scripts %}
+<script src="{% static 'mdb/mdb.js' %}"></script>
+<script src="{% static 'mdb/table.js' %}"></script>
+
+<!-- table settings -->
+<style>
+    .dataTables_paginate > paginate_button {
+        /*border: 10px;*/
+
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+        background: #ffff;
+        color: #FF0080 !important;
+        border-bottom: 4px  #7928CA!important;
+        font-weight: 600;
+        /*border-radius: 100%;*/
+
+
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+        background: linear-gradient(310deg, #7928CA 0%, #FF0080 100%);
+        color: #ffff !important;
+        /*border-radius: 100%;*/
+        border: 1px solid linear-gradient(310deg, #7928CA 0%, #FF0080 100%);
+        border-radius: .2rem;
+    }
+
+
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+        background: linear-gradient(310deg, #7928CA 0%, #FF0080 100%);
+        color: #ffff !important;
+        /*border-radius: 100%;*/
+        border: none !important;
+        border-radius: .2rem;
+
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
+        color: #ffff !important;
+    }
+
+    .dataTables_wrapper .dataTables_filter input {
+        border-radius: 2rem;
+
+        padding: 2px 15px 2px 5px;
+
+    }
+
+    .dataTables_wrapper .dataTables_filter {
+        margin-right: 20px;
+
+    }
+
+    label, .form-label {
+        font-size: 1.2rem;
+    }
+
+    .table-container {
+        margin: 20px;
+
+        padding: 10px;
+
+
+    }
+
+    .dataTables_wrapper .dataTables_paginate {
+        text-align: center;
+        float: initial;
+    }
+
+    tbody {
+        border-color: white !important;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+        border: none;
+    }
+</style>
+
+
+<style>
+    .dataTables_wrapper .dataTables_paginate{
+        text-align: center;
+        float: initial;
+    }
+</style>
+<script>
+    new DataTable('#example', {
+        pagingType: 'full_numbers'
+    });
+</script>
+
+<script>
+
+</script>
+
+</body>
+{% endblock scripts %}
+
+</html>

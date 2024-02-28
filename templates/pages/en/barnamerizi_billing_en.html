@@ -1,0 +1,1341 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container-fluid pt-3">
+    <div class="row removable">
+        <div class="col-lg-6">
+            <div class="card mb-4">
+                <div class="card-header pb-0">
+                    <h6>Monthly warehouse value</h6>
+                </div>
+                <div class="card-body p-3">
+                    <div class="chart">
+                        <div class="chartjs-size-monitor">
+                            <div class="chartjs-size-monitor-expand">
+                                <div class=""></div>
+                            </div>
+                            <div class="chartjs-size-monitor-shrink">
+                                <div class=""></div>
+                            </div>
+                        </div>
+                        <div class="chartjs-size-monitor">
+                            <div class="chartjs-size-monitor-expand">
+                                <div class=""></div>
+                            </div>
+                            <div class="chartjs-size-monitor-shrink">
+                                <div class=""></div>
+                            </div>
+                        </div>
+                        <canvas id="chart-line-1" class="chart-canvas chartjs-render-monitor" height="375" width="221" style="display: block; height: 300px; width: 176.8px; box-sizing: border-box;"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card mb-4">
+                <div class="card-header pb-0">
+                    <h6>Stagnant goods of each month</h6>
+                </div>
+                <div class="card-body p-3">
+                    <div class="chart">
+                        <div class="chartjs-size-monitor">
+                            <div class="chartjs-size-monitor-expand">
+                                <div class=""></div>
+                            </div>
+                            <div class="chartjs-size-monitor-shrink">
+                                <div class=""></div>
+                            </div>
+                        </div>
+                        <div class="chartjs-size-monitor">
+                            <div class="chartjs-size-monitor-expand">
+                                <div class=""></div>
+                            </div>
+                            <div class="chartjs-size-monitor-shrink">
+                                <div class=""></div>
+                            </div>
+                        </div>
+                        <canvas id="chart-line-2" class="chart-canvas chartjs-render-monitor" height="375" width="221" style="display: block; height: 300px; width: 176.8px; box-sizing: border-box;"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row removable">
+        <div class="col-lg-6">
+            <div class="card mb-4">
+                <div class="card-header pb-0">
+                    <h6>Inventory to sales ratio</h6>
+                </div>
+                <div class="card-body p-3">
+                    <div class="chart">
+                        <div class="chartjs-size-monitor">
+                            <div class="chartjs-size-monitor-expand">
+                                <div class=""></div>
+                            </div>
+                            <div class="chartjs-size-monitor-shrink">
+                                <div class=""></div>
+                            </div>
+                        </div>
+                        <div class="chartjs-size-monitor">
+                            <div class="chartjs-size-monitor-expand">
+                                <div class=""></div>
+                            </div>
+                            <div class="chartjs-size-monitor-shrink">
+                                <div class=""></div>
+                            </div>
+                        </div>
+                        <canvas id="chart-line-3" class="chart-canvas chartjs-render-monitor" height="375" width="221" style="display: block; height: 300px; width: 176.8px; box-sizing: border-box;"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card mb-4">
+                <div class="card-header pb-0">
+                    <h6>The ratio of stagnant goods to warehouse stock</h6>
+                </div>
+                <div class="card-body p-3">
+                    <div class="chart">
+                        <div class="chartjs-size-monitor">
+                            <div class="chartjs-size-monitor-expand">
+                                <div class=""></div>
+                            </div>
+                            <div class="chartjs-size-monitor-shrink">
+                                <div class=""></div>
+                            </div>
+                        </div>
+                        <div class="chartjs-size-monitor">
+                            <div class="chartjs-size-monitor-expand">
+                                <div class=""></div>
+                            </div>
+                            <div class="chartjs-size-monitor-shrink">
+                                <div class=""></div>
+                            </div>
+                        </div>
+                        <canvas id="chart-line-4" class="chart-canvas chartjs-render-monitor" height="375" width="221" style="display: block; height: 300px; width: 176.8px; box-sizing: border-box;"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row removable">
+        <div class="col-lg-6">
+            <div class="card mb-4">
+                <div class="card-header pb-0">
+                    <h6>Stagnant goods this month</h6>
+                </div>
+                <div class="card-body px-0 pt-0 pb-2">
+                    <div class="table-responsive p-0">
+                        <table class="table align-items-center mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">نام کالا</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">نام انبار</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">مقدار</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">واحد</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">ارزش  جنس رسوب شده</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">عصاره برنج</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">انبار مواد اولیه</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">33600</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">عدد</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">405,585,600</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">آشیانه فتوچینی 500گرم(زر ماکارونی)</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">انبار مواد اولیه</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">7600</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">عدد</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">885,779,968</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">برنج کشت دوم</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">انبار مواد اولیه</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">3000</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">کیلو</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">4,140,000,000</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">روغن حیوانی گوسفند</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">انبار مواد اولیه</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">1640</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">کیلو</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">7,297,999,872</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">سویا فله</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">انبار مواد اولیه</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">1544.8</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">کیلو</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">386,200,000</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">رب انار</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">انبار مواد اولیه</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">11.64</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">کیلو</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">454,363,904</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">ماش درجه1</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">انبار مواد اولیه</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">846.2</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">کیلو</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">401,944,992</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">شیره خرما</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">انبار مواد اولیه</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">640</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">عدد</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">320,000,000</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">پاپریکا</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">انبار مواد اولیه</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">548</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">کیلو</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">635,800,000</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">آبغوره اعلا</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">انبار مواد اولیه</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">420</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">لیتر</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">231,000,000</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card mb-4">
+                <div class="card-header pb-0">
+                    <h6>Inventory in the current month</h6>
+                </div>
+                <div class="card-body px-0 pt-0 pb-2">
+                    <div class="table-responsive p-0">
+                        <table class="table align-items-center mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">سال</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">ماه</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">نام کالا </th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">قیمت</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">تعداد</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">واحد</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">1402</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">3</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">نوشابه پت مشکی 300 cc</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">778,495,552</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">960</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">عدد</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">1402</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">3</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">ران مرغ سایز</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">514,248,000</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">612.2</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">کیلو</p>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">1402</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">3</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">پیاز</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">487,804,896</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">400</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">کیلو</p>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">1402</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">3</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">ماست تک نفره</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">487,792,512</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">2300</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">عدد</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">1402</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">3</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">پنیر پیتزا</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">444,436,320</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">14</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">کیلو</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">1402</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">3</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">چربی زدا</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">441,600,000</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">40</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">لیتر</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">1402</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">3</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">مایع ظرف شویی فله</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">411,584,000</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">700</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">لیتر</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">1402</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">3</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">نوشابه پت زرد 300cc</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">357,803,168</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">360</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">عدد</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">1402</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">3</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">نوشابه خانواده مشکی 1500cc</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">327,121,728</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">660</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">عدد</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">1402</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">3</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">لیوان یکبار مصرف کاغذی 220</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">228,720,000</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">65</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">عدد</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row removable">
+        <div class="col-lg-12">
+            <div class="card mb-4">
+                <div class="card-header pb-0">
+                    <h6>What should we buy so that the production line does not fall asleep</h6>
+                </div>
+                <div class="card-body px-0 pt-0 pb-2">
+                    <div class="table-responsive p-0">
+                        <table class="table align-items-center mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">#</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">warehouse name</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">goods id</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">goods name</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">number</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">unit</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Cost required</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">1</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">انبار نوشیدنی و صیفیجات(سردخانه 1)</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">607</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">نوشابه کوچک</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">-6592</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">عدد</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">148,924,260</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">2</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">انبار ظروف بسته بندی</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">4045</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">قاشق شفاف یک بار مصرف</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">-4657</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">عدد</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">90,610,000</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">3</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">انبار برنج و ادویه جات</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">1000</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">سنگ نمک 20 کیلویی</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">-3467</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">کیلو</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">20,395,529</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">4</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">انبار ظروف بسته بندی</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">17</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">فوم تک پرسی</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">-1231</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">عدد</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">43,782,500</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">5</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">انبار برنج و ادویه جات</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">1375</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">نمک(بسته ای)</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">-1167</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">عدد</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">4,900,000</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">6</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">انبار برنج و ادویه جات</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">1348</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">سس ساشه</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">-432</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">عدد</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">48,100,000</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">7</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">انبار برنج و ادويه جات</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">1001</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">نمك</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">-365</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">کیلو</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">43,342,557</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">8</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">انبار نوشيدني و صيفيجات (سردخانه 1)</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">3013</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">نوشابه پت زرد300 cc</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">-356</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">عدد</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">94,924,830</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">9</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">انبار برنج و ادویه جات</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">523</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">ماست</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">-352</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">کیلو</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">12,196,310</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">10</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">انبار برنج و ادویه جات</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">337</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">سس گوجه تك نفره مهرام</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">-307</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">عدد</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">17,160,000</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+      {% include "includes/footer.html" %}
+
+      {% endblock content %}
+
+      <!-- Specific JS goes HERE -->
+      {% block scripts %}
+
+        <script src="{% static 'js/plugins/chartjs.min.js' %}"></script>
+
+<!-- table settings -->
+<style>
+    .dataTables_paginate > paginate_button {
+        /*border: 10px;*/
+
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+        background: #ffff;
+        color: #FF0080 !important;
+        border-bottom: 4px  #7928CA!important;
+        font-weight: 600;
+        /*border-radius: 100%;*/
+
+
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+        background: linear-gradient(310deg, #7928CA 0%, #FF0080 100%);
+        color: #ffff !important;
+        /*border-radius: 100%;*/
+        border: 1px solid linear-gradient(310deg, #7928CA 0%, #FF0080 100%);
+        border-radius: .2rem;
+    }
+
+
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+        background: linear-gradient(310deg, #7928CA 0%, #FF0080 100%);
+        color: #ffff !important;
+        /*border-radius: 100%;*/
+        border: none !important;
+        border-radius: .2rem;
+
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
+        color: #ffff !important;
+    }
+
+    .dataTables_wrapper .dataTables_filter input {
+        border-radius: 2rem;
+
+        padding: 2px 15px 2px 5px;
+
+    }
+
+    .dataTables_wrapper .dataTables_filter {
+        margin-right: 20px;
+
+    }
+
+    label, .form-label {
+        font-size: 1.2rem;
+    }
+
+    .table-container {
+        margin: 20px;
+
+        padding: 10px;
+
+
+    }
+
+    .dataTables_wrapper .dataTables_paginate {
+        text-align: center;
+        float: initial;
+    }
+
+    tbody {
+        border-color: white !important;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+        border: none;
+    }
+</style>
+        
+        <script>
+           //----------------------------------
+           if (document.querySelector("#chart-line-1")) {
+           	var ctx2 = document.getElementById("chart-line-1").getContext("2d");
+           	var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
+           	gradientStroke1.addColorStop(1, "rgba(203,12,159,0.2)");
+           	gradientStroke1.addColorStop(0.2, "rgba(72,72,176,0.0)");
+           	gradientStroke1.addColorStop(0, "rgba(203,12,159,0)");
+           	var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
+           	gradientStroke2.addColorStop(1, "rgba(20,23,39,0.2)");
+           	gradientStroke2.addColorStop(0.2, "rgba(72,72,176,0.0)");
+           	gradientStroke2.addColorStop(0, "rgba(20,23,39,0)");
+           	new Chart(ctx2, {
+              type: "line",
+              data: {
+                labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                datasets: [{
+                    label: "2021",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#cb0c9f",
+                    borderWidth: 3,
+                    backgroundColor: gradientStroke1,
+                    fill: true,
+                    data: [, , 436019727, 528624017, 738336356, 705097722, 351162214, 748007955, 1231676297, 164556424, 326173893, 331464992],
+                    maxBarThickness: 6
+
+                  },
+                  {
+                    label: "2022",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#3A416F",
+                    borderWidth: 3,
+                    backgroundColor: gradientStroke2,
+                    fill: true,
+                    data: [679328862, 926494857, 3330567132, 3293939338, 3470012429, 2066977954, 2102605023, 2735075369, 4910903867, 2218677877, 1983819628, 3548829690],
+                    maxBarThickness: 6
+                  },
+                  {
+                    label: "2023",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#006600",
+                    borderWidth: 3,
+                    backgroundColor: gradientStroke2,
+                    fill: true,
+                    data: [2933274977, 1479478091, 1259062462, 1359062462, 1555062462, 1559062462],
+                    maxBarThickness: 6
+                  },
+                ],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                  legend: {
+                    display: true,
+                  }
+                },
+                interaction: {
+                  intersect: false,
+                  mode: 'index',
+                },
+                scales: {
+                  y: {
+                    grid: {
+                      drawBorder: false,
+                      display: true,
+                      drawOnChartArea: true,
+                      drawTicks: false,
+                      borderDash: [5, 5]
+                    },
+                    ticks: {
+                      display: true,
+                      padding: 10,
+                      color: '#b2b9bf',
+                      font: {
+                        size: 11,
+                        family: "Open Sans",
+                        style: 'normal',
+                        lineHeight: 2
+                      },
+                    }
+                  },
+                  x: {
+                    grid: {
+                      drawBorder: false,
+                      display: false,
+                      drawOnChartArea: false,
+                      drawTicks: false,
+                      borderDash: [5, 5]
+                    },
+                    ticks: {
+                      display: true,
+                      color: '#b2b9bf',
+                      padding: 20,
+                      font: {
+                        size: 11,
+                        family: "Open Sans",
+                        style: 'normal',
+                        lineHeight: 2
+                      },
+                    }
+                  },
+                },
+              },
+            });
+           };
+           //-----------------------------------
+           if (document.querySelector("#chart-line-2")) {
+           	var ctx2 = document.getElementById("chart-line-2").getContext("2d");
+           	var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
+           	gradientStroke1.addColorStop(1, "rgba(203,12,159,0.2)");
+           	gradientStroke1.addColorStop(0.2, "rgba(72,72,176,0.0)");
+           	gradientStroke1.addColorStop(0, "rgba(203,12,159,0)");
+           	var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
+           	gradientStroke2.addColorStop(1, "rgba(20,23,39,0.2)");
+           	gradientStroke2.addColorStop(0.2, "rgba(72,72,176,0.0)");
+           	gradientStroke2.addColorStop(0, "rgba(20,23,39,0)");
+           	new Chart(ctx2, {
+              type: "line",
+              data: {
+                labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                datasets: [{
+                    label: "2021",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#cb0c9f",
+                    borderWidth: 3,
+                    backgroundColor: gradientStroke1,
+                    fill: true,
+                    data: [, , , , 14500, 39990520, 25947597, 17652825, 24511192, 137352694, 781023077],
+                    maxBarThickness: 6
+
+                  },
+                  {
+                    label: "2022",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#3A416F",
+                    borderWidth: 3,
+                    backgroundColor: gradientStroke2,
+                    fill: true,
+                    data: [46666818, 5713462, 79091371, 1102012, 10801, 4716464, 87015445, 65680941, 47975063, 15940800, 152340667, 1363852261],
+                    maxBarThickness: 6
+                  },
+                  {
+                    label: "2023",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#006600",
+                    borderWidth: 3,
+                    backgroundColor: gradientStroke2,
+                    fill: true,
+                    data: [423345877, 887664354, 1223647086, 1263612648, 1123685286, 923649456],
+                    maxBarThickness: 6
+                  },
+                ],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                  legend: {
+                    display: true,
+                  }
+                },
+                interaction: {
+                  intersect: false,
+                  mode: 'index',
+                },
+                scales: {
+                  y: {
+                    grid: {
+                      drawBorder: false,
+                      display: true,
+                      drawOnChartArea: true,
+                      drawTicks: false,
+                      borderDash: [5, 5]
+                    },
+                    ticks: {
+                      display: true,
+                      padding: 10,
+                      color: '#b2b9bf',
+                      font: {
+                        size: 11,
+                        family: "Open Sans",
+                        style: 'normal',
+                        lineHeight: 2
+                      },
+                    }
+                  },
+                  x: {
+                    grid: {
+                      drawBorder: false,
+                      display: false,
+                      drawOnChartArea: false,
+                      drawTicks: false,
+                      borderDash: [5, 5]
+                    },
+                    ticks: {
+                      display: true,
+                      color: '#b2b9bf',
+                      padding: 20,
+                      font: {
+                        size: 11,
+                        family: "Open Sans",
+                        style: 'normal',
+                        lineHeight: 2
+                      },
+                    }
+                  },
+                },
+              },
+            });
+           };
+           //-----------------------------------
+           if (document.querySelector("#chart-line-3")) {
+           	var ctx2 = document.getElementById("chart-line-3").getContext("2d");
+           	var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
+           	gradientStroke1.addColorStop(1, "rgba(203,12,159,0.2)");
+           	gradientStroke1.addColorStop(0.2, "rgba(72,72,176,0.0)");
+           	gradientStroke1.addColorStop(0, "rgba(203,12,159,0)");
+           	var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
+           	gradientStroke2.addColorStop(1, "rgba(20,23,39,0.2)");
+           	gradientStroke2.addColorStop(0.2, "rgba(72,72,176,0.0)");
+           	gradientStroke2.addColorStop(0, "rgba(20,23,39,0)");
+           	new Chart(ctx2, {
+              type: "line",
+              data: {
+                labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                datasets: [{
+                    label: "2021",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#cb0c9f",
+                    borderWidth: 3,
+                    backgroundColor: gradientStroke1,
+                    fill: true,
+                    data: [, , 0, 9.659, 3.666, 2.692, 0.628, 1.341, 1.51, 0.249, 0.624, 0.491],
+                    maxBarThickness: 6
+
+                  },
+                  {
+                    label: "2022",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#3A416F",
+                    borderWidth: 3,
+                    backgroundColor: gradientStroke2,
+                    fill: true,
+                    data: [1.017, 0.924, 2.909, 1.978, 1.955, 1.395, 1.11, 1.065, 1.853, 0.944, 0.777, 1.35],
+                    maxBarThickness: 6
+                  },
+                  {
+                    label: "2023",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#006600",
+                    borderWidth: 3,
+                    backgroundColor: gradientStroke2,
+                    fill: true,
+                    data: [0.116, 0.472, 1.698, 2.27, 4.91, 3.854],
+                    maxBarThickness: 6
+                  },
+                ],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                  legend: {
+                    display: true,
+                  }
+                },
+                interaction: {
+                  intersect: false,
+                  mode: 'index',
+                },
+                scales: {
+                  y: {
+                    grid: {
+                      drawBorder: false,
+                      display: true,
+                      drawOnChartArea: true,
+                      drawTicks: false,
+                      borderDash: [5, 5]
+                    },
+                    ticks: {
+                      display: true,
+                      padding: 10,
+                      color: '#b2b9bf',
+                      font: {
+                        size: 11,
+                        family: "Open Sans",
+                        style: 'normal',
+                        lineHeight: 2
+                      },
+                    }
+                  },
+                  x: {
+                    grid: {
+                      drawBorder: false,
+                      display: false,
+                      drawOnChartArea: false,
+                      drawTicks: false,
+                      borderDash: [5, 5]
+                    },
+                    ticks: {
+                      display: true,
+                      color: '#b2b9bf',
+                      padding: 20,
+                      font: {
+                        size: 11,
+                        family: "Open Sans",
+                        style: 'normal',
+                        lineHeight: 2
+                      },
+                    }
+                  },
+                },
+              },
+            });
+           };
+           //-----------------------------------
+           if (document.querySelector("#chart-line-4")) {
+           	var ctx2 = document.getElementById("chart-line-4").getContext("2d");
+           	var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
+           	gradientStroke1.addColorStop(1, "rgba(203,12,159,0.2)");
+           	gradientStroke1.addColorStop(0.2, "rgba(72,72,176,0.0)");
+           	gradientStroke1.addColorStop(0, "rgba(203,12,159,0)");
+           	var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
+           	gradientStroke2.addColorStop(1, "rgba(20,23,39,0.2)");
+           	gradientStroke2.addColorStop(0.2, "rgba(72,72,176,0.0)");
+           	gradientStroke2.addColorStop(0, "rgba(20,23,39,0)");
+           	new Chart(ctx2, {
+              type: "line",
+              data: {
+                labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                datasets: [{
+                    label: "1400",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#cb0c9f",
+                    borderWidth: 3,
+                    backgroundColor: gradientStroke1,
+                    fill: true,
+                    data: [, , , , 0, , 0.114, 0.035, 0.014, 0.149, 0.421, 2.356],
+                    maxBarThickness: 6
+
+                  },
+                  {
+                    label: "2022",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#3A416F",
+                    borderWidth: 3,
+                    backgroundColor: gradientStroke2,
+                    fill: true,
+                    data: [0.069, 0.006, 0.024, 0, 0, 0.002, 0.041, 0.024, 0.01, 0.007, 0.077, 0.384],
+                    maxBarThickness: 6
+                  },
+                  {
+                    label: "2023",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#006600",
+                    borderWidth: 3,
+                    backgroundColor: gradientStroke2,
+                    fill: true,
+                    data: [0.144, 0.6, 0.972, 1.543, 1.26, 1.06],
+                    maxBarThickness: 6
+                  },
+                ],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                  legend: {
+                    display: true,
+                  }
+                },
+                interaction: {
+                  intersect: false,
+                  mode: 'index',
+                },
+                scales: {
+                  y: {
+                    grid: {
+                      drawBorder: false,
+                      display: true,
+                      drawOnChartArea: true,
+                      drawTicks: false,
+                      borderDash: [5, 5]
+                    },
+                    ticks: {
+                      display: true,
+                      padding: 10,
+                      color: '#b2b9bf',
+                      font: {
+                        size: 11,
+                        family: "Open Sans",
+                        style: 'normal',
+                        lineHeight: 2
+                      },
+                    }
+                  },
+                  x: {
+                    grid: {
+                      drawBorder: false,
+                      display: false,
+                      drawOnChartArea: false,
+                      drawTicks: false,
+                      borderDash: [5, 5]
+                    },
+                    ticks: {
+                      display: true,
+                      color: '#b2b9bf',
+                      padding: 20,
+                      font: {
+                        size: 11,
+                        family: "Open Sans",
+                        style: 'normal',
+                        lineHeight: 2
+                      },
+                    }
+                  },
+                },
+              },
+            });
+           };
+        </script>
+
+
+      {% endblock scripts %}

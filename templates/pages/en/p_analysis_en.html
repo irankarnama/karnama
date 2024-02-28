@@ -1,0 +1,527 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container-fluid pt-3">
+    <div class="row removable">
+        <div class="col-lg-4">
+            <div class="card mb-4">
+                <div class="card-body p-3">
+                    <div class="bg-gradient-dark border-radius-lg py-3 pe-1 mb-3">
+                        <div class="chart">
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <canvas id="chart-bars-1" class="chart-canvas chartjs-render-monitor" height="212" style="display: block; height: 169.6px; width: 250.4px; box-sizing: border-box;" width="313"></canvas>
+                        </div>
+                    </div>
+                    <h6 class="ms-2 mt-4 mb-0">Products with the lowest profit</h6>
+                    <p class="text-sm ms-2">(<span class="font-weight-bolder">T)</span></p>
+                    <div class="container border-radius-lg">
+                        <div class="row"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card mb-4">
+                <div class="card-body p-3">
+                    <div class="bg-gradient-dark border-radius-lg py-3 pe-1 mb-3">
+                        <div class="chart">
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <canvas id="chart-bars-2" class="chart-canvas chartjs-render-monitor" height="212" style="display: block; height: 169.6px; width: 250.4px; box-sizing: border-box;" width="313"></canvas>
+                        </div>
+                    </div>
+                    <h6 class="ms-2 mt-4 mb-0">The most profitable products</h6>
+                    <p class="text-sm ms-2">(<span class="font-weight-bolder">T)</span></p>
+                    <div class="container border-radius-lg">
+                        <div class="row"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card mb-4">
+                <div class="card-body p-3">
+                    <div class="bg-gradient-dark border-radius-lg py-3 pe-1 mb-3">
+                        <div class="chart">
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <canvas id="chart-bars-3" class="chart-canvas chartjs-render-monitor" height="212" style="display: block; height: 169.6px; width: 250.4px; box-sizing: border-box;" width="313"></canvas>
+                        </div>
+                    </div>
+                    <h6 class="ms-2 mt-4 mb-0">Harmful products</h6>
+                    <p class="text-sm ms-2">(<span class="font-weight-bolder">T)</span></p>
+                    <div class="container border-radius-lg">
+                        <div class="row"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row removable">
+        <div class="col-lg-12">
+            <div class="card mb-4">
+                <div class="card-header pb-0">
+                    <h6>products</h6>
+                </div>
+                <div class="card-body px-0 pt-0 pb-2">
+                    <div class="table-responsive p-0">
+                        <table class="table align-items-center mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">goods name</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">sales price</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">prime cost</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Profit</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">The ratio of selling price to finished</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">خوراک ماهیچه تک نفره</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">3,570,000</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">1,632,000</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">1,938,000</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">0.457</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">خوراک ماهیچه 1/5 نفره</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">5,525,000</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">1,632,000</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">3,893,000</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">0.295</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">خوراک کوبیده میکس</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">816,000</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">1,074,279</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">-258,279</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">1.317</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">خوراک کباب وزیری</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">1,309,000</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">883,539</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">425,461</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">0.675</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">چلو کباب وزیری</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">1,819,000</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">883,539</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">935,461</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">0.486</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">خوراک ماهی</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">1,190,000</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">883,320</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">306,680</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">0.742</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+      {% include "includes/footer.html" %}
+
+      {% endblock content %}
+
+      <!-- Specific JS goes HERE -->
+      {% block scripts %}
+
+        <script src="{% static 'js/plugins/chartjs.min.js' %}"></script>
+
+<!-- table settings -->
+<style>
+  .dataTables_paginate > paginate_button {
+      /*border: 10px;*/
+
+  }
+
+  .dataTables_wrapper .dataTables_paginate .paginate_button {
+      background: #ffff;
+      color: #FF0080 !important;
+      border-bottom: 4px  #7928CA!important;
+      font-weight: 600;
+      /*border-radius: 100%;*/
+
+
+  }
+
+  .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+      background: linear-gradient(310deg, #7928CA 0%, #FF0080 100%);
+      color: #ffff !important;
+      /*border-radius: 100%;*/
+      border: 1px solid linear-gradient(310deg, #7928CA 0%, #FF0080 100%);
+      border-radius: .2rem;
+  }
+
+
+
+  .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+      background: linear-gradient(310deg, #7928CA 0%, #FF0080 100%);
+      color: #ffff !important;
+      /*border-radius: 100%;*/
+      border: none !important;
+      border-radius: .2rem;
+
+  }
+
+  .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
+      color: #ffff !important;
+  }
+
+  .dataTables_wrapper .dataTables_filter input {
+      border-radius: 2rem;
+
+      padding: 2px 15px 2px 5px;
+
+  }
+
+  .dataTables_wrapper .dataTables_filter {
+      margin-right: 20px;
+
+  }
+
+  label, .form-label {
+      font-size: 1.2rem;
+  }
+
+  .table-container {
+      margin: 20px;
+
+      padding: 10px;
+
+
+  }
+
+  .dataTables_wrapper .dataTables_paginate {
+      text-align: center;
+      float: initial;
+  }
+
+  tbody {
+      border-color: white !important;
+  }
+
+  .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+      border: none;
+  }
+</style>
+      
+        <script>
+        //------------------------------
+        if (document.querySelector("#chart-bars-1")) {
+           	var ctx = document.getElementById("chart-bars-1").getContext("2d");
+           	new Chart(ctx, {
+              type: "bar",
+              data: {
+                labels: ["چلو کوبیده مرغ", "کوبیده گوشت 1", "چلو کوبیده مرغ تک سیخ", "کوبیده گوشت", "خوراک مرغ"],
+                datasets: [{
+                  label: "Profit",
+                  tension: 0.4,
+                  borderWidth: 0,
+                  borderRadius: 4,
+                  borderSkipped: false,
+                  backgroundColor: "#fff",
+                  data: [1700, 3072, 10200, 16344, 17680],
+                  maxBarThickness: 6
+                }, ],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                  legend: {
+                    display: true,
+                  }
+                },
+                interaction: {
+                  intersect: false,
+                  mode: 'index',
+                },
+                scales: {
+                  y: {
+                    grid: {
+                      drawBorder: false,
+                      display: false,
+                      drawOnChartArea: false,
+                      drawTicks: false,
+                    },
+                    ticks: {
+                      suggestedMin: 0,
+                      suggestedMax: 500,
+                      beginAtZero: true,
+                      padding: 15,
+                      font: {
+                        size: 14,
+                        family: "Open Sans",
+                        style: 'normal',
+                        lineHeight: 2
+                      },
+                      color: "#fff"
+                    },
+                  },
+                  x: {
+                    grid: {
+                      drawBorder: false,
+                      display: false,
+                      drawOnChartArea: false,
+                      drawTicks: false
+                    },
+                    ticks: {
+                      display: true
+                    },
+                  },
+                },
+              },
+            });
+           };
+
+           if (document.querySelector("#chart-bars-2")) {
+           	var ctx = document.getElementById("chart-bars-2").getContext("2d");
+           	new Chart(ctx, {
+              type: "bar",
+              data: {
+                labels: ["خوراک ماهیچه 1/5 نفره", "خورشت فسنجان با مرغ", "خوراک ماهیچه تک نفره", "چلو کباب وزیری", "خوراک ماهی قزل آلا"],
+                datasets: [{
+                  label: "Profit",
+                  tension: 0.4,
+                  borderWidth: 0,
+                  borderRadius: 4,
+                  borderSkipped: false,
+                  backgroundColor: "#00ff00",
+                  data: [389300, 207774, 193800, 187092, 183668],
+                  maxBarThickness: 6
+                }, ],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                  legend: {
+                    display: true,
+                  }
+                },
+                interaction: {
+                  intersect: false,
+                  mode: 'index',
+                },
+                scales: {
+                  y: {
+                    grid: {
+                      drawBorder: false,
+                      display: false,
+                      drawOnChartArea: false,
+                      drawTicks: false,
+                    },
+                    ticks: {
+                      suggestedMin: 0,
+                      suggestedMax: 500,
+                      beginAtZero: true,
+                      padding: 15,
+                      font: {
+                        size: 14,
+                        family: "Open Sans",
+                        style: 'normal',
+                        lineHeight: 2
+                      },
+                      color: "#fff"
+                    },
+                  },
+                  x: {
+                    grid: {
+                      drawBorder: false,
+                      display: false,
+                      drawOnChartArea: false,
+                      drawTicks: false
+                    },
+                    ticks: {
+                      display: true
+                    },
+                  },
+                },
+              },
+            });
+           };
+
+           if (document.querySelector("#chart-bars-3")) {
+           	var ctx = document.getElementById("chart-bars-3").getContext("2d");
+           	new Chart(ctx, {
+              type: "bar",
+              data: {
+                labels: ["کوبیده مرغ", "خوراک کوبیده میکس", "جوجه زعفرانی ممتاز"],
+                datasets: [{
+                  label: "loss",
+                  tension: 0.4,
+                  borderWidth: 0,
+                  borderRadius: 4,
+                  borderSkipped: false,
+                  backgroundColor: "#ff0000",
+                  data: [-69700, -51656, -22032],
+                  maxBarThickness: 6
+                }, ],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                  legend: {
+                    display: true,
+                  }
+                },
+                interaction: {
+                  intersect: false,
+                  mode: 'index',
+                },
+                scales: {
+                  y: {
+                    grid: {
+                      drawBorder: false,
+                      display: false,
+                      drawOnChartArea: false,
+                      drawTicks: false,
+                    },
+                    ticks: {
+                      suggestedMin: 0,
+                      suggestedMax: 500,
+                      beginAtZero: true,
+                      padding: 15,
+                      font: {
+                        size: 14,
+                        family: "Open Sans",
+                        style: 'normal',
+                        lineHeight: 2
+                      },
+                      color: "#fff"
+                    },
+                  },
+                  x: {
+                    grid: {
+                      drawBorder: false,
+                      display: false,
+                      drawOnChartArea: false,
+                      drawTicks: false
+                    },
+                    ticks: {
+                      display: true
+                    },
+                  },
+                },
+              },
+            });
+        };
+        </script>
+
+
+      {% endblock scripts %}

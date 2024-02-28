@@ -1,0 +1,219 @@
+{% extends 'layouts/base-rtl.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+
+<div class="container-fluid pt-3">
+    <div class="row removable">
+        <div class="col-xl-5 col-sm-6">
+            <div class="card mb-4">
+                <div class="card-body p-3">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="numbers">
+                                <p class="text-sm mb-0 text-capitalize font-weight-bold">ارزش روزانه کل انبار</p>
+                                <h5 class="font-weight-bolder mb-0">
+                                    ۳,۶۹۱,۰۴۲,۳۳۴,۷۹۹
+                                    <span class="text-success text-sm font-weight-bolder">تومان</span>
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="col-4 text-end">
+                            <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row removable">
+    <div class="col-lg-12">
+        <div class="card mb-4">
+            <div class="card-header pb-0">
+                <h6 style="font-size: 1.5rem; margin-bottom: 20px">خروج نامتعارف</h6>
+            </div>
+            <div class="table-container">
+                <div class="card-body px-0 pt-0 pb-2">
+                    <div class="table-responsive p-0">
+                        <table class="table align-items-center justify-content-center mb-0 display" id="table1"
+                               style="width:100%; text-align: center; align-content: center">
+                            <thead>
+                            <tr>
+                                <th style="text-align: center">#</th>
+                                <th style="text-align: center">سال</th>
+                                <th style="text-align: center">ماه</th>
+                                <th style="text-align: center">روز</th>
+                                <th style="text-align: center"> نام کالا</th>
+                                <th style="text-align: center">مبلغ کل خروج کالا(تومان)</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for i,j,k,l,m,n in khorooj %}
+                            <tr>
+                                <td>
+                                    <p class="text-sm font-weight-bold mb-0">{{i}}</p>
+                                </td>
+                                <td>
+                                    <p class="text-sm font-weight-bold mb-0">{{j|floatformat:"0"}}</p>
+                                </td>
+                                <td>
+                                    <p class="text-sm font-weight-bold mb-0">{{k|floatformat:"0"}}</p>
+                                </td>
+                                <td>
+                                    <p class="text-sm font-weight-bold mb-0">{{l|floatformat:"0"}}</p>
+                                </td>
+                                <td>
+                                    <p class="text-sm font-weight-bold mb-0">{{m}}</p>
+                                </td>
+                                <td>
+                                    <p class="text-sm font-weight-bold mb-0">{{n}}</p>
+                                </td>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include "includes/footer-rtl.html" %}
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE -->
+{% block scripts %}
+<!-- table settings -->
+<style>
+
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+        background: #ffff;
+        color: #FF0080 !important;
+        border-botto: none !important;
+        font-weight: 600;
+        /*border-radius: 100%;*/
+
+
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+        background: linear-gradient(310deg, #7928CA 0%, #FF0080 100%);
+        color: #ffff !important;
+        /*border-radius: 100%;*/
+        border: 1px solid linear-gradient(310deg, #7928CA 0%, #FF0080 100%);
+        border-radius: .2rem;
+    }
+
+
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+        background: linear-gradient(310deg, #7928CA 0%, #FF0080 100%);
+        color: #ffff !important;
+        /*border-radius: 100%;*/
+        border: none !important;
+        border-radius: .2rem;
+
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
+        color: #ffff !important;
+    }
+
+    .dataTables_wrapper .dataTables_filter input {
+        border-radius: 2rem;
+
+        padding: 2px 15px 2px 5px;
+
+    }
+
+    .dataTables_wrapper .dataTables_filter {
+        margin-right: 20px;
+
+    }
+
+    label, .form-label {
+        font-size: 1.2rem;
+    }
+
+    .table-container {
+        margin: 20px;
+
+        padding: 10px;
+
+
+    }
+
+    .dataTables_wrapper .dataTables_paginate {
+        text-align: center;
+        float: initial;
+    }
+
+    tbody {
+        border-color: white !important;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+        border: none;
+    }
+</style>
+
+<script src="{% static 'js/plugins/chartjs.min.js' %}"></script>
+<script>
+    //----------------------------------
+</script>
+
+</script>
+<script src="{% static 'mdb/mdb.js' %}"></script>
+<script src="{% static 'mdb/table.js' %}"></script>
+
+
+<script>
+    new DataTable('#table1', {
+        pagingType: 'full_numbers'
+    });
+
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        function convertToPersianNumbers(input) {
+            var persianNumbers = {
+                '0': '۰',
+                '1': '۱',
+                '2': '۲',
+                '3': '۳',
+                '4': '۴',
+                '5': '۵',
+                '6': '۶',
+                '7': '۷',
+                '8': '۸',
+                '9': '۹'
+            };
+
+            return input.replace(/[0-9]/g, function(match) {
+                return persianNumbers[match];
+            });
+        }
+
+        function convertNumbersInElement(element) {
+            var textContent = element.textContent;
+            element.textContent = convertToPersianNumbers(textContent);
+        }
+
+        var elements = document.querySelectorAll('.text-sm');
+        elements.forEach(function(element) {
+            convertNumbersInElement(element);
+        });
+    });
+
+</script>
+
+{% endblock scripts %}
+
+

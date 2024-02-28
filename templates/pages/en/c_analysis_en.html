@@ -1,0 +1,2266 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container-fluid py-4">
+  <div class="card mb-4">
+    <div class="card-body p-3">
+      <h4> &#160; &#160; &#160;Yesterday's statistics</h4>
+      <div class="container-fluid pt-3">
+          <div class="row removable">
+              <div class="col-xl-3 col-sm-6">
+
+              </div>
+              <div class="col-xl-3 col-sm-6">
+
+              </div>
+              <div class="col-xl-3 col-sm-6">
+
+              </div>
+              <div class="col-xl-3 col-sm-6">
+
+              </div>
+          </div>
+          <div class="row removable">
+              <div class="col-xl-3 col-sm-6">
+                  <div class="card mb-4">
+                      <div class="card-body p-3">
+                          <div class="row">
+                              <div class="col-8">
+                                  <div class="numbers">
+                                      <p class="text-sm mb-0 text-capitalize font-weight-bold">Lost customers</p>
+                                      <h5 class="font-weight-bolder mb-0">
+                                          379
+                                          <span class="text-success text-sm font-weight-bolder"></span>
+                                      </h5>
+                                  </div>
+                              </div>
+                              <div class="col-4 text-end">
+                                  <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                      <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-xl-3 col-sm-6">
+                  <div class="card mb-4">
+                      <div class="card-body p-3">
+                          <div class="row">
+                              <div class="col-8">
+                                  <div class="numbers">
+                                      <p class="text-sm mb-0 text-capitalize font-weight-bold">Total number of customers</p>
+                                      <h5 class="font-weight-bolder mb-0">
+                                          11,098
+                                          <span class="text-danger text-sm font-weight-bolder">-2%</span>
+                                      </h5>
+                                  </div>
+                              </div>
+                              <div class="col-4 text-end">
+                                  <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                      <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-body p-3">
+      <h6 class="ms-2 mt-4 mb-0">Total purchases by group</h6>
+      <div class="row removable">
+        <div class="col-lg-6">
+            <div class="card mb-4">
+                <div class="card-body p-3">
+                    <div class="bg-gradient-dark border-radius-lg py-3 pe-1 mb-3">
+                        <div class="chart">
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <canvas id="chart-bars-1" class="chart-canvas chartjs-render-monitor" height="212" style="display: block; height: 169.6px; width: 406.4px; box-sizing: border-box;" width="508"></canvas>
+                        </div>
+                    </div>
+                    <h6 class="ms-2 mt-4 mb-0">From the beginning until now</h6>
+                    <p class="text-sm ms-2"><span class="font-weight-bolder"></span></p>
+                    <div class="container border-radius-lg">
+                        <div class="row"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card mb-4">
+                <div class="card-body p-3">
+                    <div class="bg-gradient-dark border-radius-lg py-3 pe-1 mb-3">
+                        <div class="chart">
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <canvas id="chart-bars-9" class="chart-canvas chartjs-render-monitor" height="212" style="display: block; height: 169.6px; width: 406.4px; box-sizing: border-box;" width="508"></canvas>
+                        </div>
+                    </div>
+                    <h6 class="ms-2 mt-4 mb-0">A year past</h6>
+                    <p class="text-sm ms-2"><span class="font-weight-bolder"></span></p>
+                    <div class="container border-radius-lg">
+                        <div class="row"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+  </div>
+  <div class="card mb-4">
+    <div class="card-body p-3">
+      <h6 class="ms-2 mt-4 mb-0">Total customer category</h6>
+      <div class="row removable">
+        <div class="col-lg-6">
+            <div class="card mb-4">
+                <div class="card-body p-3">
+                    <div class="bg-gradient-dark border-radius-lg py-3 pe-1 mb-3">
+                        <div class="chart">
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <canvas id="chart-bars-2" class="chart-canvas chartjs-render-monitor" height="212" style="display: block; height: 169.6px; width: 406.4px; box-sizing: border-box;" width="508"></canvas>
+                        </div>
+                    </div>
+                    <h6 class="ms-2 mt-4 mb-0">From the beginning until now</h6>
+                    <p class="text-sm ms-2"><span class="font-weight-bolder"></span></p>
+                    <div class="container border-radius-lg">
+                        <div class="row"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card mb-4">
+                <div class="card-body p-3">
+                    <div class="bg-gradient-dark border-radius-lg py-3 pe-1 mb-3">
+                        <div class="chart">
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <canvas id="chart-bars-10" class="chart-canvas chartjs-render-monitor" height="212" style="display: block; height: 169.6px; width: 406.4px; box-sizing: border-box;" width="508"></canvas>
+                        </div>
+                    </div>
+                    <h6 class="ms-2 mt-4 mb-0">A year past</h6>
+                    <p class="text-sm ms-2"><span class="font-weight-bolder"></span></p>
+                    <div class="container border-radius-lg">
+                        <div class="row"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+  </div>
+            <div class="card mb-4">
+                <div class="card-header pb-0">
+                    <h6>The average distance between two purchases by customers of each group</h6>
+                </div>
+                <div class="card-body px-0 pt-0 pb-2">
+                    <div class="table-responsive p-0">
+                        <table class="table align-items-center mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">PFM</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">The middle distance between two purchases</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">The distance between the last two purchases</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">The shortest distance between two purchases</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">The longest distance between two purchases</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">5_Star</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">5</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">6.231</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">0</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">37.778</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">4_Loyal</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">19.262</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">25.13</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">15.718</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">37.348</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">3_Potential Loyal</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">65.833</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">66.007</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">64</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">68</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">2_Hold and Improve</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">73</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">105.25</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">51.125</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">127</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">1_Risky</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">352.208</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">352.208</p>
+                                    </td>
+                                    <td >
+                                        <p class="text-sm font-weight-bold mb-0">352.208</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-weight-bold mb-0">352.135</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row removable">
+        <div class="col-lg-12">
+            <div class="card mb-4">
+                <div class="card-body p-3">
+                    <div class="bg-gradient-dark border-radius-lg py-3 pe-1 mb-3">
+                        <div class="chart">
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <canvas id="chart-bars-8" class="chart-canvas chartjs-render-monitor" height="340" style="display: block; height: 170px; width: 787px;" width="1574"></canvas>
+                        </div>
+                    </div>
+                    <h6 class="ms-2 mt-4 mb-0">Customer details</h6>
+                    <p class="text-sm ms-2"><span class="font-weight-bolder"></span></p>
+                    <div class="container border-radius-lg">
+                        <div class="row"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row removable">
+        <div class="col-lg-6">
+            <div class="card mb-4">
+                <div class="card-body p-3">
+                    <div class="bg-gradient-dark border-radius-lg py-3 pe-1 mb-3">
+                        <div class="chart">
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <canvas id="chart-bars-3" class="chart-canvas chartjs-render-monitor" height="340" style="display: block; height: 170px; width: 787px;" width="1574"></canvas>
+                        </div>
+                    </div>
+                    <h6 class="ms-2 mt-4 mb-0">older time</h6>
+                    <p class="text-sm ms-2"><span class="font-weight-bolder"></span></p>
+                    <div class="container border-radius-lg">
+                        <div class="row"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card mb-4">
+                <div class="card-body p-3">
+                    <div class="bg-gradient-dark border-radius-lg py-3 pe-1 mb-3">
+                        <div class="chart">
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <canvas id="chart-bars-4" class="chart-canvas chartjs-render-monitor" height="340" style="display: block; height: 170px; width: 787px;" width="1574"></canvas>
+                        </div>
+                    </div>
+                    <h6 class="ms-2 mt-4 mb-0">Lost customers</h6>
+                    <p class="text-sm ms-2"><span class="font-weight-bolder"></span></p>
+                    <div class="container border-radius-lg">
+                        <div class="row"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row removable">
+        <div class="col-lg-6">
+            <div class="card mb-4">
+                <div class="card-body p-3">
+                    <div class="bg-gradient-dark border-radius-lg py-3 pe-1 mb-3">
+                        <div class="chart">
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <canvas id="chart-bars-5" class="chart-canvas chartjs-render-monitor" height="340" style="display: block; height: 170px; width: 787px;" width="1574"></canvas>
+                        </div>
+                    </div>
+                    <h6 class="ms-2 mt-4 mb-0">Old and new customers</h6>
+                    <p class="text-sm ms-2"><span class="font-weight-bolder"></span></p>
+                    <div class="container border-radius-lg">
+                        <div class="row"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card mb-4">
+                <div class="card-body p-3">
+                    <div class="bg-gradient-dark border-radius-lg py-3 pe-1 mb-3">
+                        <div class="chart">
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <canvas id="chart-bars-6" class="chart-canvas chartjs-render-monitor" height="340" style="display: block; height: 170px; width: 787px;" width="1574"></canvas>
+                        </div>
+                    </div>
+                    <h6 class="ms-2 mt-4 mb-0">Changes of customers</h6>
+                    <p class="text-sm ms-2"><span class="font-weight-bolder"></span></p>
+                    <div class="container border-radius-lg">
+                        <div class="row"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row removable">
+        <div class="col-lg-12">
+            <div class="card mb-4">
+                <div id="chart-container1">recent time</div>
+            </div>
+        </div>
+    </div>
+    <div class="row removable">
+        <div class="col-lg-12">
+            <div class="card mb-4">
+                <div class="card-header pb-0">
+                    <h6>Middle chart</h6>
+                    <p class="text-sm">
+                        <span class="font-weight-bold">per 3 days</span>
+                    </p>
+                </div>
+                <div class="card-body p-3">
+                    <div class="chart">
+                        <div class="chartjs-size-monitor">
+                            <div class="chartjs-size-monitor-expand">
+                                <div class=""></div>
+                            </div>
+                            <div class="chartjs-size-monitor-shrink">
+                                <div class=""></div>
+                            </div>
+                        </div>
+                        <div class="chartjs-size-monitor">
+                            <div class="chartjs-size-monitor-expand">
+                                <div class=""></div>
+                            </div>
+                            <div class="chartjs-size-monitor-shrink">
+                                <div class=""></div>
+                            </div>
+                        </div>
+                        <canvas id="chart-line-1" class="chart-canvas chartjs-render-monitor" height="375" width="1096" style="display: block; height: 300px; width: 876.8px; box-sizing: border-box;"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row removable">
+        <div class="col-lg-3">
+            <div class="card mb-4">
+                <div class="card-body p-3">
+                        <div class="chart">
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <canvas id="chart-dies-1" class="chart-canvas chartjs-render-monitor" height="340" style="display: block; height: 170px; width: 787px;" width="1574"></canvas>
+                        </div>
+                    <h6 class="ms-2 mt-4 mb-0">Three popular services of each group</h6>
+                    <p class="text-sm ms-2">(<span class="font-weight-bolder">Lost customer</span></p>
+                    <div class="container border-radius-lg">
+                        <div class="row"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card mb-4">
+                <div class="card-body p-3">
+                        <div class="chart">
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <canvas id="chart-dies-2" class="chart-canvas chartjs-render-monitor" height="340" style="display: block; height: 170px; width: 787px;" width="1574"></canvas>
+                        </div>
+                    <h6 class="ms-2 mt-4 mb-0">Three popular services of each group</h6>
+                    <p class="text-sm ms-2">(<span class="font-weight-bolder">Group promotion</span></p>
+                    <div class="container border-radius-lg">
+                        <div class="row"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card mb-4">
+                <div class="card-body p-3">
+                        <div class="chart">
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <canvas id="chart-dies-3" class="chart-canvas chartjs-render-monitor" height="340" style="display: block; height: 170px; width: 787px;" width="1574"></canvas>
+                        </div>
+                    <h6 class="ms-2 mt-4 mb-0">Three popular services of each group</h6>
+                    <p class="text-sm ms-2">(<span class="font-weight-bolder">Stability in the group</span></p>
+                    <div class="container border-radius-lg">
+                        <div class="row"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card mb-4">
+                <div class="card-body p-3">
+                        <div class="chart">
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <canvas id="chart-dies-4" class="chart-canvas chartjs-render-monitor" height="340" style="display: block; height: 170px; width: 787px;" width="1574"></canvas>
+                        </div>
+                    <h6 class="ms-2 mt-4 mb-0">Three popular services of each group</h6>
+                    <p class="text-sm ms-2">(<span class="font-weight-bolder">Demotion in the group</span></p>
+                    <div class="container border-radius-lg">
+                        <div class="row"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row removable">
+        <div class="col-lg-8">
+            <div class="card mb-4">
+                <div class="card-header pb-0">
+                    <h6>New, lost and reconciled customers</h6>
+                    <p class="text-sm">
+                        <span class="font-weight-bold"></span>
+                    </p>
+                </div>
+                <div class="card-body p-3">
+                    <div class="chart">
+                        <div class="chartjs-size-monitor">
+                            <div class="chartjs-size-monitor-expand">
+                                <div class=""></div>
+                            </div>
+                            <div class="chartjs-size-monitor-shrink">
+                                <div class=""></div>
+                            </div>
+                        </div>
+                        <div class="chartjs-size-monitor">
+                            <div class="chartjs-size-monitor-expand">
+                                <div class=""></div>
+                            </div>
+                            <div class="chartjs-size-monitor-shrink">
+                                <div class=""></div>
+                            </div>
+                        </div>
+                        <canvas id="chart-line-2" class="chart-canvas chartjs-render-monitor" height="600" width="1582" style="display: block; height: 300px; width: 791px;"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card mb-4">
+                <div class="card-body p-3">
+                        <div class="chart">
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <canvas id="chart-dies-5" class="chart-canvas chartjs-render-monitor" height="340" style="display: block; height: 170px; width: 787px;" width="1574"></canvas>
+                        </div>
+                    <h6 class="ms-2 mt-4 mb-0">The status of customers until yesterday</h6>
+                    <p class="text-sm ms-2"><span class="font-weight-bolder"></span></p>
+                    <div class="container border-radius-lg">
+                        <div class="row"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row removable">
+        <div class="col-lg-12">
+            <div class="card mb-4">
+                <div class="card-header pb-0">
+                    <h6>Customer status chart</h6>
+                    <p class="text-sm">
+                        <span class="font-weight-bold">per 24 hours</span>
+                    </p>
+                </div>
+                <div class="card-body p-3">
+                    <div class="chart">
+                        <div class="chartjs-size-monitor">
+                            <div class="chartjs-size-monitor-expand">
+                                <div class=""></div>
+                            </div>
+                            <div class="chartjs-size-monitor-shrink">
+                                <div class=""></div>
+                            </div>
+                        </div>
+                        <div class="chartjs-size-monitor">
+                            <div class="chartjs-size-monitor-expand">
+                                <div class=""></div>
+                            </div>
+                            <div class="chartjs-size-monitor-shrink">
+                                <div class=""></div>
+                            </div>
+                        </div>
+                        <canvas id="chart-line-3" class="chart-canvas chartjs-render-monitor" height="600" width="1582" style="display: block; height: 300px; width: 791px;"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row removable">
+        <div class="col-lg-12">
+            <div class="card mb-4">
+                <div class="card-header pb-0">
+                    <h6>Customer classification chart</h6>
+                    <p class="text-sm">
+                        <span class="font-weight-bold">per 24 hours</span>
+                    </p>
+                </div>
+                <div class="card-body p-3">
+                    <div class="chart">
+                        <div class="chartjs-size-monitor">
+                            <div class="chartjs-size-monitor-expand">
+                                <div class=""></div>
+                            </div>
+                            <div class="chartjs-size-monitor-shrink">
+                                <div class=""></div>
+                            </div>
+                        </div>
+                        <div class="chartjs-size-monitor">
+                            <div class="chartjs-size-monitor-expand">
+                                <div class=""></div>
+                            </div>
+                            <div class="chartjs-size-monitor-shrink">
+                                <div class=""></div>
+                            </div>
+                        </div>
+                        <canvas id="chart-line-4" class="chart-canvas chartjs-render-monitor" height="600" width="1582" style="display: block; height: 300px; width: 791px;"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+      {% include "includes/footer.html" %}
+
+      {% endblock content %}
+
+      <!-- Specific JS goes HERE -->
+      {% block scripts %}
+
+        <script src="{% static 'js/plugins/chartjs.min.js' %}"></script>
+
+<!-- table settings -->
+<style>
+  .dataTables_paginate > paginate_button {
+      /*border: 10px;*/
+
+  }
+
+  .dataTables_wrapper .dataTables_paginate .paginate_button {
+      background: #ffff;
+      color: #FF0080 !important;
+      border-bottom: 4px  #7928CA!important;
+      font-weight: 600;
+      /*border-radius: 100%;*/
+
+
+  }
+
+  .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+      background: linear-gradient(310deg, #7928CA 0%, #FF0080 100%);
+      color: #ffff !important;
+      /*border-radius: 100%;*/
+      border: 1px solid linear-gradient(310deg, #7928CA 0%, #FF0080 100%);
+      border-radius: .2rem;
+  }
+
+
+
+  .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+      background: linear-gradient(310deg, #7928CA 0%, #FF0080 100%);
+      color: #ffff !important;
+      /*border-radius: 100%;*/
+      border: none !important;
+      border-radius: .2rem;
+
+  }
+
+  .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
+      color: #ffff !important;
+  }
+
+  .dataTables_wrapper .dataTables_filter input {
+      border-radius: 2rem;
+
+      padding: 2px 15px 2px 5px;
+
+  }
+
+  .dataTables_wrapper .dataTables_filter {
+      margin-right: 20px;
+
+  }
+
+  label, .form-label {
+      font-size: 1.2rem;
+  }
+
+  .table-container {
+      margin: 20px;
+
+      padding: 10px;
+
+
+  }
+
+  .dataTables_wrapper .dataTables_paginate {
+      text-align: center;
+      float: initial;
+  }
+
+  tbody {
+      border-color: white !important;
+  }
+
+  .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+      border: none;
+  }
+</style>
+      
+        <script>
+        //------------------------------
+        if (document.querySelector("#chart-dies-1")) {
+           	var ctx = document.getElementById("chart-dies-1").getContext("2d");
+            var xValues = ["کوبیده گوشت", "چلو خورشت قیمه", "چلو کباب کوبیده گوشت"];
+            var yValues = [41.7, 35.34, 22.97];
+            var barColors = [
+            "#3A416F",
+            "#cb0c9f",
+            "#00ff00"
+            ];
+
+            new Chart(ctx, {
+            type: "pie",
+            data: {
+                labels: xValues,
+                datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+                }]
+            },
+            options: {
+                responsive: true,
+            },
+            });
+        };
+        //--------------------------------------
+        if (document.querySelector("#chart-dies-2")) {
+           	var ctx = document.getElementById("chart-dies-2").getContext("2d");
+            var xValues = ["کوبیده گوشت", "چلو خورشت قیمه", "چلو کباب کوبیده گوشت"];
+            var yValues = [57.41, 20.37, 22.22];
+            var barColors = [
+            "#3A416F",
+            "#cb0c9f",
+            "#00ff00"
+            ];
+
+            new Chart(ctx, {
+            type: "pie",
+            data: {
+                labels: xValues,
+                datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+                }]
+            },
+            options: {
+                responsive: true,
+            },
+            });
+        };
+        //--------------------------------------
+        if (document.querySelector("#chart-dies-3")) {
+           	var ctx = document.getElementById("chart-dies-3").getContext("2d");
+            var xValues = ["کوبیده گوشت", "چلو خورشت قیمه", "چلو خورشت سبزی"];
+            var yValues = [39.3, 29.37, 31.33];
+            var barColors = [
+            "#3A416F",
+            "#cb0c9f",
+            "#ff6600"
+            ];
+
+            new Chart(ctx, {
+            type: "pie",
+            data: {
+                labels: xValues,
+                datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+                }]
+            },
+            options: {
+                responsive: true,
+            },
+            });
+        };
+        //--------------------------------------
+        if (document.querySelector("#chart-dies-4")) {
+           	var ctx = document.getElementById("chart-dies-4").getContext("2d");
+            var xValues = ["کوبیده گوشت", "چلو خورشت قیمه", "چلو کباب کوبیده گوشت"];
+            var yValues = [42.19, 24.47, 33.33];
+            var barColors = [
+            "#3A416F",
+            "#cb0c9f",
+            "#00ff00",
+            ];
+
+            new Chart(ctx, {
+            type: "pie",
+            data: {
+                labels: xValues,
+                datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+                }]
+            },
+            options: {
+                responsive: true,
+            },
+            });
+        };
+        //--------------------------------------
+        if (document.querySelector("#chart-dies-5")) {
+           	var ctx = document.getElementById("chart-dies-5").getContext("2d");
+            var xValues = ["lost customer", "new customer", "regular customer", "reconciled customer", "new customer"];
+            var yValues = [53.07, 23.07, 20.22, 3.6, 0];
+            var barColors = [
+            "#3A416F",
+            "#cb0c9f",
+            "#00ff00",
+            "#ff6600",
+            "#1affff"
+            ];
+
+            new Chart(ctx, {
+            type: "pie",
+            data: {
+                labels: xValues,
+                datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+                }]
+            },
+            options: {
+                responsive: true,
+            },
+            });
+        };
+        //--------------------------------------
+        if (document.querySelector("#chart-bars-1")) {
+           	var ctx = document.getElementById("chart-bars-1").getContext("2d");
+           	new Chart(ctx, {
+              type: "bar",
+              data: {
+                labels: ["risky", "significant", "potentially loyal", "loyal", "special"],
+                datasets: [{
+                  label: "Toman",
+                  tension: 0.4,
+                  borderWidth: 0,
+                  borderRadius: 4,
+                  borderSkipped: false,
+                  backgroundColor: "#fff",
+                  data: [7344810081, 27297094167, 25188369339, 78340657227, 189601279686],
+                  maxBarThickness: 6
+                }, ],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                  legend: {
+                    display: true,
+                  }
+                },
+                interaction: {
+                  intersect: false,
+                  mode: 'index',
+                },
+                scales: {
+                  y: {
+                    grid: {
+                      drawBorder: false,
+                      display: false,
+                      drawOnChartArea: false,
+                      drawTicks: false,
+                    },
+                    ticks: {
+                      suggestedMin: 0,
+                      suggestedMax: 500,
+                      beginAtZero: true,
+                      padding: 15,
+                      font: {
+                        size: 14,
+                        family: "Open Sans",
+                        style: 'normal',
+                        lineHeight: 2
+                      },
+                      color: "#fff"
+                    },
+                  },
+                  x: {
+                    grid: {
+                      drawBorder: false,
+                      display: false,
+                      drawOnChartArea: false,
+                      drawTicks: false
+                    },
+                    ticks: {
+                      display: true
+                    },
+                  },
+                },
+              },
+            });
+           };
+           //-----------------------------------------
+           if (document.querySelector("#chart-bars-2")) {
+                var ctx = document.getElementById("chart-bars-2").getContext("2d");
+                new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: ["risky", "significant", "potentially loyal", "loyal", "special"],
+                    datasets: [{
+                    label: "number",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    borderRadius: 4,
+                    borderSkipped: false,
+                    backgroundColor: "#fff",
+                    data: [2226, 2218, 1858, 3376, 1420],
+                    maxBarThickness: 6
+                    }, ],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                    legend: {
+                        display: true,
+                    }
+                    },
+                    interaction: {
+                    intersect: false,
+                    mode: 'index',
+                    },
+                    scales: {
+                    y: {
+                        grid: {
+                        drawBorder: false,
+                        display: false,
+                        drawOnChartArea: false,
+                        drawTicks: false,
+                        },
+                        ticks: {
+                        suggestedMin: 0,
+                        suggestedMax: 500,
+                        beginAtZero: true,
+                        padding: 15,
+                        font: {
+                            size: 14,
+                            family: "Open Sans",
+                            style: 'normal',
+                            lineHeight: 2
+                        },
+                        color: "#fff"
+                        },
+                    },
+                    x: {
+                        grid: {
+                        drawBorder: false,
+                        display: false,
+                        drawOnChartArea: false,
+                        drawTicks: false
+                        },
+                        ticks: {
+                        display: true
+                        },
+                    },
+                    },
+                },
+             });
+            };
+           //-----------------------------------------
+           if (document.querySelector("#chart-bars-3")) {
+           	var ctx = document.getElementById("chart-bars-3").getContext("2d");
+           	new Chart(ctx, {
+              type: "bar",
+              data: {
+                labels: ["risky", "significant", "potentially loyal", "loyal", "special"],
+                datasets: [{
+                  label: "number",
+                  tension: 0.4,
+                  borderWidth: 0,
+                  borderRadius: 4,
+                  borderSkipped: false,
+                  backgroundColor: "#fff",
+                  data: [158, 156, 137, 214, 117],
+                  maxBarThickness: 6
+                }, ],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                  legend: {
+                    display: true,
+                  }
+                },
+                interaction: {
+                  intersect: false,
+                  mode: 'index',
+                },
+                scales: {
+                  y: {
+                    grid: {
+                      drawBorder: false,
+                      display: false,
+                      drawOnChartArea: false,
+                      drawTicks: false,
+                    },
+                    ticks: {
+                      suggestedMin: 0,
+                      suggestedMax: 500,
+                      beginAtZero: true,
+                      padding: 15,
+                      font: {
+                        size: 14,
+                        family: "Open Sans",
+                        style: 'normal',
+                        lineHeight: 2
+                      },
+                      color: "#fff"
+                    },
+                  },
+                  x: {
+                    grid: {
+                      drawBorder: false,
+                      display: false,
+                      drawOnChartArea: false,
+                      drawTicks: false
+                    },
+                    ticks: {
+                      display: true
+                    },
+                  },
+                },
+              },
+            });
+           };
+           //-----------------------------------------
+           if (document.querySelector("#chart-bars-4")) {
+           	var ctx = document.getElementById("chart-bars-4").getContext("2d");
+           	new Chart(ctx, {
+              type: "bar",
+              data: {
+                labels: ["risky", "significant", "potentially loyal", "loyal", "special"],
+                datasets: [{
+                  label: "number",
+                  tension: 0.4,
+                  borderWidth: 0,
+                  borderRadius: 4,
+                  borderSkipped: false,
+                  backgroundColor: "#fff",
+                  data: [115, 87, 71, 90, 16],
+                  maxBarThickness: 6
+                }, ],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                  legend: {
+                    display: true,
+                  }
+                },
+                interaction: {
+                  intersect: false,
+                  mode: 'index',
+                },
+                scales: {
+                  y: {
+                    grid: {
+                      drawBorder: false,
+                      display: false,
+                      drawOnChartArea: false,
+                      drawTicks: false,
+                    },
+                    ticks: {
+                      suggestedMin: 0,
+                      suggestedMax: 500,
+                      beginAtZero: true,
+                      padding: 15,
+                      font: {
+                        size: 14,
+                        family: "Open Sans",
+                        style: 'normal',
+                        lineHeight: 2
+                      },
+                      color: "#fff"
+                    },
+                  },
+                  x: {
+                    grid: {
+                      drawBorder: false,
+                      display: false,
+                      drawOnChartArea: false,
+                      drawTicks: false
+                    },
+                    ticks: {
+                      display: true
+                    },
+                  },
+                },
+              },
+            });
+           };
+           //-----------------------------------------
+           if (document.querySelector("#chart-bars-5")) {
+           	var ctx = document.getElementById("chart-bars-5").getContext("2d");
+           	new Chart(ctx, {
+              type: "bar",
+              data: {
+                labels: ["new", "old", "reconciled"],
+                datasets: [{
+                  label: "number",
+                  tension: 0.4,
+                  borderWidth: 0,
+                  borderRadius: 4,
+                  borderSkipped: false,
+                  backgroundColor: "#fff",
+                  data: [361, 403, 142],
+                  maxBarThickness: 6
+                }, ],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                  legend: {
+                    display: true,
+                  }
+                },
+                interaction: {
+                  intersect: false,
+                  mode: 'index',
+                },
+                scales: {
+                  y: {
+                    grid: {
+                      drawBorder: false,
+                      display: false,
+                      drawOnChartArea: false,
+                      drawTicks: false,
+                    },
+                    ticks: {
+                      suggestedMin: 0,
+                      suggestedMax: 500,
+                      beginAtZero: true,
+                      padding: 15,
+                      font: {
+                        size: 14,
+                        family: "Open Sans",
+                        style: 'normal',
+                        lineHeight: 2
+                      },
+                      color: "#fff"
+                    },
+                  },
+                  x: {
+                    grid: {
+                      drawBorder: false,
+                      display: false,
+                      drawOnChartArea: false,
+                      drawTicks: false
+                    },
+                    ticks: {
+                      display: true
+                    },
+                  },
+                },
+              },
+            });
+           };
+           //-----------------------------------------
+           if (document.querySelector("#chart-bars-6")) {
+           	var ctx = document.getElementById("chart-bars-6").getContext("2d");
+           	new Chart(ctx, {
+              type: "bar",
+              data: {
+                labels: ["Relegation in group", "Stability in group", "Promotion of group"],
+                datasets: [{
+                  label: "number",
+                  tension: 0.4,
+                  borderWidth: 0,
+                  borderRadius: 4,
+                  borderSkipped: false,
+                  backgroundColor: "#fff",
+                  data: [142, 122, 139],
+                  maxBarThickness: 6
+                }, ],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                  legend: {
+                    display: true,
+                  }
+                },
+                interaction: {
+                  intersect: false,
+                  mode: 'index',
+                },
+                scales: {
+                  y: {
+                    grid: {
+                      drawBorder: false,
+                      display: false,
+                      drawOnChartArea: false,
+                      drawTicks: false,
+                    },
+                    ticks: {
+                      suggestedMin: 0,
+                      suggestedMax: 500,
+                      beginAtZero: true,
+                      padding: 15,
+                      font: {
+                        size: 14,
+                        family: "Open Sans",
+                        style: 'normal',
+                        lineHeight: 2
+                      },
+                      color: "#fff"
+                    },
+                  },
+                  x: {
+                    grid: {
+                      drawBorder: false,
+                      display: false,
+                      drawOnChartArea: false,
+                      drawTicks: false
+                    },
+                    ticks: {
+                      display: true
+                    },
+                  },
+                },
+              },
+            });
+           };
+           //-----------------------------------------
+           if (document.querySelector("#chart-bars-8")) {
+           	var ctx = document.getElementById("chart-bars-8").getContext("2d");
+           	new Chart(ctx, {
+              type: "bar",
+              data: {
+                labels: ["2021-07-26", "2021-08-02", "2021-08-09", "2021-08-16", "2021-08-23", "2021-08-30", "2021-09-06", "2021-09-13", "2021-09-20", "2021-09-27", "2021-10-04", "2021-10-11"
+                        , "2021-10-18", "2021-10-25", "2021-11-01", "2021-11-08", "2021-11-15", "2021-11-22", "2021-12-06", "2021-12-13", "2021-12-20", "2021-12-27", "2022-01-03", "2022-01-10"
+                        , "2022-01-17", "2022-01-24", "2022-01-31", "2022-02-07", "2022-02-14", "2022-02-21", "2022-02-28", "2022-03-07", "2022-03-14", "2022-03-21", "2022-03-28", "2022-04-04"
+                        , "2022-04-11", "2022-04-18", "2022-04-25", "2022-05-02", "2022-05-09", "2022-05-16", "2022-05-23", "2022-05-30", "2022-06-06", "2022-06-13", "2022-06-20", "2022-06-27"
+                        , "2022-07-04", "2022-07-11", "2022-07-18", "2022-07-25", "2022-08-01", "2022-08-08", "2022-08-15", "2022-08-22", "2022-08-29", "2022-09-05", "2022-09-12", "2022-09-19"
+                        , "2022-09-26", "2022-10-03", "2022-10-10", "2022-10-17", "2022-10-24", "2022-10-31", "2022-11-07", "2022-11-14", "2022-11-21", "2022-11-28"],
+                datasets: [{
+                  label: "تعداد",
+                  tension: 0.4,
+                  borderWidth: 0,
+                  borderRadius: 4,
+                  borderSkipped: false,
+                  backgroundColor: "#fff",
+                  data: [12, 12, 12, 22, 32, 18, 28, 42, 18, 84, 138, 130, 126, 118, 102, 98, 110, 182, 122, 102, 100, 212, 84, 102, 70, 76, 68, 66, 60, 50, 48, 58, 78, 74, 94, 36, 66
+                        , 56, 48, 94, 158, 184, 134, 118, 100, 130, 108, 106, 108, 102, 156, 84, 78, 116, 170, 132, 180, 144, 214, 332, 260, 242, 352, 854, 634, 338, 382, 664, 582, 822],
+                  maxBarThickness: 6
+                },],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                  legend: {
+                    display: true,
+                  }
+                },
+                interaction: {
+                  intersect: false,
+                  mode: 'index',
+                },
+                scales: {
+                  y: {
+                    grid: {
+                      drawBorder: false,
+                      display: false,
+                      drawOnChartArea: false,
+                      drawTicks: false,
+                    },
+                    ticks: {
+                      suggestedMin: 0,
+                      suggestedMax: 500,
+                      beginAtZero: true,
+                      padding: 15,
+                      font: {
+                        size: 14,
+                        family: "Open Sans",
+                        style: 'normal',
+                        lineHeight: 2
+                      },
+                      color: "#fff"
+                    },
+                  },
+                  x: {
+                    grid: {
+                      drawBorder: false,
+                      display: false,
+                      drawOnChartArea: false,
+                      drawTicks: false
+                    },
+                    ticks: {
+                      display: true
+                    },
+                  },
+                },
+              },
+            });
+           };
+           //-----------------------------------------
+           if (document.querySelector("#chart-bars-9")) {
+           	var ctx = document.getElementById("chart-bars-9").getContext("2d");
+           	new Chart(ctx, {
+              type: "bar",
+              data: {
+                labels: ["risky", "significant", "potentially loyal", "loyal", "special"],
+                datasets: [{
+                  label: "Toman",
+                  tension: 0.4,
+                  borderWidth: 0,
+                  borderRadius: 4,
+                  borderSkipped: false,
+                  backgroundColor: "#fff",
+                  data: [ , , 9054698583, 35021146209, 189601279686],
+                  maxBarThickness: 6
+                }, ],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                  legend: {
+                    display: true,
+                  }
+                },
+                interaction: {
+                  intersect: false,
+                  mode: 'index',
+                },
+                scales: {
+                  y: {
+                    grid: {
+                      drawBorder: false,
+                      display: false,
+                      drawOnChartArea: false,
+                      drawTicks: false,
+                    },
+                    ticks: {
+                      suggestedMin: 0,
+                      suggestedMax: 500,
+                      beginAtZero: true,
+                      padding: 15,
+                      font: {
+                        size: 14,
+                        family: "Open Sans",
+                        style: 'normal',
+                        lineHeight: 2
+                      },
+                      color: "#fff"
+                    },
+                  },
+                  x: {
+                    grid: {
+                      drawBorder: false,
+                      display: false,
+                      drawOnChartArea: false,
+                      drawTicks: false
+                    },
+                    ticks: {
+                      display: true
+                    },
+                  },
+                },
+              },
+            });
+        
+           };
+
+        if (document.querySelector("#chart-bars-10")) {
+           	var ctx = document.getElementById("chart-bars-10").getContext("2d");
+           	new Chart(ctx, {
+              type: "bar",
+              data: {
+                labels: ["risky", "significant", "potentially loyal", "loyal", "special"],
+                datasets: [{
+                  label: "count",
+                  tension: 0.4,
+                  borderWidth: 0,
+                  borderRadius: 4,
+                  borderSkipped: false,
+                  backgroundColor: "#fff",
+                  data: [ , , 724, 3136, 1420],
+                  maxBarThickness: 6
+                }, ],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                  legend: {
+                    display: true,
+                  }
+                },
+                interaction: {
+                  intersect: false,
+                  mode: 'index',
+                },
+                scales: {
+                  y: {
+                    grid: {
+                      drawBorder: false,
+                      display: false,
+                      drawOnChartArea: false,
+                      drawTicks: false,
+                    },
+                    ticks: {
+                      suggestedMin: 0,
+                      suggestedMax: 500,
+                      beginAtZero: true,
+                      padding: 15,
+                      font: {
+                        size: 14,
+                        family: "Open Sans",
+                        style: 'normal',
+                        lineHeight: 2
+                      },
+                      color: "#fff"
+                    },
+                  },
+                  x: {
+                    grid: {
+                      drawBorder: false,
+                      display: false,
+                      drawOnChartArea: false,
+                      drawTicks: false
+                    },
+                    ticks: {
+                      display: true
+                    },
+                  },
+                },
+              },
+            });
+        
+           };
+           //-----------------------------------------
+           if (document.querySelector("#chart-line-1")) {
+           	var ctx2 = document.getElementById("chart-line-1").getContext("2d");
+           	var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
+           	gradientStroke1.addColorStop(1, "rgba(203,12,159,0.2)");
+           	gradientStroke1.addColorStop(0.2, "rgba(72,72,176,0.0)");
+           	gradientStroke1.addColorStop(0, "rgba(203,12,159,0)");
+           	var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
+           	gradientStroke2.addColorStop(1, "rgba(20,23,39,0.2)");
+           	gradientStroke2.addColorStop(0.2, "rgba(72,72,176,0.0)");
+           	gradientStroke2.addColorStop(0, "rgba(20,23,39,0)");
+           	new Chart(ctx2, {
+              type: "line",
+              data: {
+                labels: ["2021-08-31", "2021-09-03", "2021-09-06", "2021-09-09", "2021-09-12", "2021-09-15"],
+                datasets: [{
+                    label: "Total customer satisfaction index",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#cb0c9f",
+                    borderWidth: 3,
+                    backgroundColor: gradientStroke1,
+                    fill: true,
+                    data: [24870.063, 23110.574, 22783.963, 21593.119, 19302.544, 18272.801],
+                    maxBarThickness: 6
+
+                  },
+                  {
+                    label: "The Monetization Score",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#3A416F",
+                    borderWidth: 3,
+                    backgroundColor: gradientStroke2,
+                    fill: true,
+                    data: [158, 143.333, 143, 134.333, 123.333, 112],
+                    maxBarThickness: 6
+                  },
+                  {
+                    label: "recent purchases score",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#006600",
+                    borderWidth: 3,
+                    backgroundColor: gradientStroke2,
+                    fill: true,
+                    data: [78, 80, 79, 79.667, 77.333, 80.667],
+                    maxBarThickness: 6
+                  },
+                  {
+                    label: "Customer return score",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#732626",
+                    borderWidth: 3,
+                    backgroundColor: gradientStroke2,
+                    fill: true,
+                    data: [2, 2, 2, 2, 2, 2],
+                    maxBarThickness: 6
+                  },
+                ],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                  legend: {
+                    display: true,
+                  }
+                },
+                interaction: {
+                  intersect: false,
+                  mode: 'index',
+                },
+                scales: {
+                  y: {
+                    grid: {
+                      drawBorder: false,
+                      display: true,
+                      drawOnChartArea: true,
+                      drawTicks: false,
+                      borderDash: [5, 5]
+                    },
+                    ticks: {
+                      display: true,
+                      padding: 10,
+                      color: '#b2b9bf',
+                      font: {
+                        size: 11,
+                        family: "Open Sans",
+                        style: 'normal',
+                        lineHeight: 2
+                      },
+                    }
+                  },
+                  x: {
+                    grid: {
+                      drawBorder: false,
+                      display: false,
+                      drawOnChartArea: false,
+                      drawTicks: false,
+                      borderDash: [5, 5]
+                    },
+                    ticks: {
+                      display: true,
+                      color: '#b2b9bf',
+                      padding: 20,
+                      font: {
+                        size: 11,
+                        family: "Open Sans",
+                        style: 'normal',
+                        lineHeight: 2
+                      },
+                    }
+                  },
+                },
+              },
+            });
+           };
+           //-----------------------------------------
+           if (document.querySelector("#chart-line-2")) {
+           	var ctx2 = document.getElementById("chart-line-2").getContext("2d");
+           	var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
+           	gradientStroke1.addColorStop(1, "rgba(203,12,159,0.2)");
+           	gradientStroke1.addColorStop(0.2, "rgba(72,72,176,0.0)");
+           	gradientStroke1.addColorStop(0, "rgba(203,12,159,0)");
+           	var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
+           	gradientStroke2.addColorStop(1, "rgba(20,23,39,0.2)");
+           	gradientStroke2.addColorStop(0.2, "rgba(72,72,176,0.0)");
+           	gradientStroke2.addColorStop(0, "rgba(20,23,39,0)");
+           	new Chart(ctx2, {
+              type: "line",
+              data: {
+                labels: ["2021-07-26", "2021-08-02", "2021-08-09", "2021-08-16", "2021-08-23", "2021-08-30"],
+                datasets: [{
+                    label: "Lost customer",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#cb0c9f",
+                    borderWidth: 3,
+                    backgroundColor: gradientStroke1,
+                    fill: true,
+                    data: [7, 11, 14, 16, 23, 15],
+                    maxBarThickness: 6
+
+                  },
+                  {
+                    label: "New Customer",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#3A416F",
+                    borderWidth: 3,
+                    backgroundColor: gradientStroke2,
+                    fill: true,
+                    data: [52, 66, 29, 39, 53, 33],
+                    maxBarThickness: 6
+                  },
+                  {
+                    label: "Discount card customer",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#006600",
+                    borderWidth: 3,
+                    backgroundColor: gradientStroke2,
+                    fill: true,
+                    data: [ , , , , , ],
+                    maxBarThickness: 6
+                  },
+                  {
+                    label: "The customer is reconciled",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#732626",
+                    borderWidth: 3,
+                    backgroundColor: gradientStroke2,
+                    fill: true,
+                    data: [ , , , , , ],
+                    maxBarThickness: 6
+                  },
+                ],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                  legend: {
+                    display: true,
+                  }
+                },
+                interaction: {
+                  intersect: false,
+                  mode: 'index',
+                },
+                scales: {
+                  y: {
+                    grid: {
+                      drawBorder: false,
+                      display: true,
+                      drawOnChartArea: true,
+                      drawTicks: false,
+                      borderDash: [5, 5]
+                    },
+                    ticks: {
+                      display: true,
+                      padding: 10,
+                      color: '#b2b9bf',
+                      font: {
+                        size: 11,
+                        family: "Open Sans",
+                        style: 'normal',
+                        lineHeight: 2
+                      },
+                    }
+                  },
+                  x: {
+                    grid: {
+                      drawBorder: false,
+                      display: false,
+                      drawOnChartArea: false,
+                      drawTicks: false,
+                      borderDash: [5, 5]
+                    },
+                    ticks: {
+                      display: true,
+                      color: '#b2b9bf',
+                      padding: 20,
+                      font: {
+                        size: 11,
+                        family: "Open Sans",
+                        style: 'normal',
+                        lineHeight: 2
+                      },
+                    }
+                  },
+                },
+              },
+            });
+           };
+           //-----------------------------------------
+           if (document.querySelector("#chart-line-3")) {
+           	var ctx2 = document.getElementById("chart-line-3").getContext("2d");
+           	var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
+           	gradientStroke1.addColorStop(1, "rgba(203,12,159,0.2)");
+           	gradientStroke1.addColorStop(0.2, "rgba(72,72,176,0.0)");
+           	gradientStroke1.addColorStop(0, "rgba(203,12,159,0)");
+           	var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
+           	gradientStroke2.addColorStop(1, "rgba(20,23,39,0.2)");
+           	gradientStroke2.addColorStop(0.2, "rgba(72,72,176,0.0)");
+           	gradientStroke2.addColorStop(0, "rgba(20,23,39,0)");
+           	new Chart(ctx2, {
+              type: "line",
+              data: {
+                labels: ["2021-07-27", "2021-07-28", "2021-07-29", "2021-07-30", "2021-07-31", "2021-08-01"],
+                datasets: [{
+                    label: "Lost customer",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#cb0c9f",
+                    borderWidth: 3,
+                    backgroundColor: gradientStroke1,
+                    fill: true,
+                    data: [0, 0, 0, 0, 0, 0],
+                    maxBarThickness: 6
+
+                  },
+                  {
+                    label: "regular customer",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#3A416F",
+                    borderWidth: 3,
+                    backgroundColor: gradientStroke2,
+                    fill: true,
+                    data: [0, 3, 9, 9, 10, 14],
+                    maxBarThickness: 6
+                  },
+                  {
+                    label: "New customer",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#006600",
+                    borderWidth: 3,
+                    backgroundColor: gradientStroke2,
+                    fill: true,
+                    data: [0, 11, 6, 14, 14, 28],
+                    maxBarThickness: 6
+                  },
+                  {
+                    label: "The customer is reconciled",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#732626",
+                    borderWidth: 3,
+                    backgroundColor: gradientStroke2,
+                    fill: true,
+                    data: [0, 0, 0, 0, 0, 0],
+                    maxBarThickness: 6
+                  },
+                  {
+                    label: "New customer",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#8000ff",
+                    borderWidth: 3,
+                    backgroundColor: gradientStroke2,
+                    fill: true,
+                    data: [14, 1, 8, 1, 18, 10],
+                    maxBarThickness: 6
+                  },
+                ],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                  legend: {
+                    display: true,
+                  }
+                },
+                interaction: {
+                  intersect: false,
+                  mode: 'index',
+                },
+                scales: {
+                  y: {
+                    grid: {
+                      drawBorder: false,
+                      display: true,
+                      drawOnChartArea: true,
+                      drawTicks: false,
+                      borderDash: [5, 5]
+                    },
+                    ticks: {
+                      display: true,
+                      padding: 10,
+                      color: '#b2b9bf',
+                      font: {
+                        size: 11,
+                        family: "Open Sans",
+                        style: 'normal',
+                        lineHeight: 2
+                      },
+                    }
+                  },
+                  x: {
+                    grid: {
+                      drawBorder: false,
+                      display: false,
+                      drawOnChartArea: false,
+                      drawTicks: false,
+                      borderDash: [5, 5]
+                    },
+                    ticks: {
+                      display: true,
+                      color: '#b2b9bf',
+                      padding: 20,
+                      font: {
+                        size: 11,
+                        family: "Open Sans",
+                        style: 'normal',
+                        lineHeight: 2
+                      },
+                    }
+                  },
+                },
+              },
+            });
+           };
+           //-----------------------------------------
+           if (document.querySelector("#chart-line-4")) {
+           	var ctx2 = document.getElementById("chart-line-4").getContext("2d");
+           	var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
+           	gradientStroke1.addColorStop(1, "rgba(203,12,159,0.2)");
+           	gradientStroke1.addColorStop(0.2, "rgba(72,72,176,0.0)");
+           	gradientStroke1.addColorStop(0, "rgba(203,12,159,0)");
+           	var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
+           	gradientStroke2.addColorStop(1, "rgba(20,23,39,0.2)");
+           	gradientStroke2.addColorStop(0.2, "rgba(72,72,176,0.0)");
+           	gradientStroke2.addColorStop(0, "rgba(20,23,39,0)");
+           	new Chart(ctx2, {
+              type: "line",
+              data: {
+                labels: ["2021-07-27", "2021-07-28", "2021-07-29", "2021-07-30", "2021-07-31", "2021-08-01"],
+                datasets: [{
+                    label: "Star",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#cb0c9f",
+                    borderWidth: 3,
+                    backgroundColor: gradientStroke1,
+                    fill: true,
+                    data: [1, 3, 4, 2, 6, 9],
+                    maxBarThickness: 6
+
+                  },
+                  {
+                    label: "Loyal",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#3A416F",
+                    borderWidth: 3,
+                    backgroundColor: gradientStroke2,
+                    fill: true,
+                    data: [3, 3, 4, 7, 11, 12],
+                    maxBarThickness: 6
+                  },
+                  {
+                    label: "Potential Loyal",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#006600",
+                    borderWidth: 3,
+                    backgroundColor: gradientStroke2,
+                    fill: true,
+                    data: [2, 3, 4, 3, 7, 9],
+                    maxBarThickness: 6
+                  },
+                  {
+                    label: "Hold and Improve",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#732626",
+                    borderWidth: 3,
+                    backgroundColor: gradientStroke2,
+                    fill: true,
+                    data: [2, 3, 4, 4, 8, 10],
+                    maxBarThickness: 6
+                  },
+                  {
+                    label: "Risky",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#8000ff",
+                    borderWidth: 3,
+                    backgroundColor: gradientStroke2,
+                    fill: true,
+                    data: [6, 3, 7, 8, 10, 12],
+                    maxBarThickness: 6
+                  },
+                ],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                  legend: {
+                    display: true,
+                  }
+                },
+                interaction: {
+                  intersect: false,
+                  mode: 'index',
+                },
+                scales: {
+                  y: {
+                    grid: {
+                      drawBorder: false,
+                      display: true,
+                      drawOnChartArea: true,
+                      drawTicks: false,
+                      borderDash: [5, 5]
+                    },
+                    ticks: {
+                      display: true,
+                      padding: 10,
+                      color: '#b2b9bf',
+                      font: {
+                        size: 11,
+                        family: "Open Sans",
+                        style: 'normal',
+                        lineHeight: 2
+                      },
+                    }
+                  },
+                  x: {
+                    grid: {
+                      drawBorder: false,
+                      display: false,
+                      drawOnChartArea: false,
+                      drawTicks: false,
+                      borderDash: [5, 5]
+                    },
+                    ticks: {
+                      display: true,
+                      color: '#b2b9bf',
+                      padding: 20,
+                      font: {
+                        size: 11,
+                        family: "Open Sans",
+                        style: 'normal',
+                        lineHeight: 2
+                      },
+                    }
+                  },
+                },
+              },
+            });
+           };
+    </script>
+    <script src="./assets/js/loopple/loopple.js"></script>
+<!--stacked bar-->
+
+<script src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+
+<script src="https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
+
+<script>
+    FusionCharts.ready(function () {
+        var revenueChart = new FusionCharts({
+            type: 'stackedcolumn2d',
+            renderAt: 'chart-container1',
+            width: '100%',
+            height: '500',
+            dataFormat: 'json',
+            dataSource: {
+                "chart": {
+                    "caption": "recent tume",
+                    "subCaption": "",
+                    "xAxisname": "",
+                    "yAxisName": "",
+                    "numberPrefix": "",
+                    //To show revenue stack in Percentage distribution
+                    "stack100Percent": "1",
+                    "decimals": "1",
+                    //To show value as datavalue and percent value in tooltip
+                    "showPercentInTooltip": "1",
+                    "showValues": "1",
+                    "showPercentValues": "0",
+                    //Value font color
+                    "valueFontColor": "#ffffff",
+                    "theme": "fusion"
+                },
+
+                "categories": [{
+                    "category": [{
+                        "label": "Risky"
+                    }, {
+                        "label": "Hold and Improve"
+                    }, {
+                        "label": "Potential Loyal"
+                    }, {
+                        "label": "Loyal"
+                    }, {
+                        "label": "Star"
+                    }]
+                }],
+
+                "dataset": [{
+                    "seriesname": "newcomer",
+                    "data": [{
+                        "value": "80"
+                    }, {
+                        "value": "80"
+                    }, {
+                        "value": "74"
+                    }, {
+                        "value": "93"
+                    }, {
+                        "value": "34"
+                    }]
+                }, {
+                    "seriesname": "reconciled",
+                    "data": [{
+                        "value": "43"
+                    }, {
+                        "value": "34"
+                    }, {
+                        "value": "28"
+                    }, {
+                        "value": "29"
+                    }, {
+                        "value": "8"
+                    }]
+                }, {
+                    "seriesname": "Group promotion",
+                    "data": [{
+                        "value": "0"
+                    }, {
+                        "value": "11"
+                    }, {
+                        "value": "21"
+                    }, {
+                        "value": "60"
+                    }, {
+                        "value": "47"
+                    }]
+                }, {
+                    "seriesname": "Stability in the group",
+                    "data": [{
+                        "value": "6"
+                    }, {
+                        "value": "15"
+                    }, {
+                        "value": "11"
+                    }, {
+                        "value": "36"
+                    }, {
+                        "value": "54"
+                    }]
+                }, {
+                    "seriesname": "Demotion in the group",
+                    "data": [{
+                        "value": "53"
+                    }, {
+                        "value": "41"
+                    }, {
+                        "value": "21"
+                    }, {
+                        "value": "27"
+                    }, {
+                        "value": "0"
+                    }]
+                }]
+            }
+        });
+
+        revenueChart.render();
+    });
+
+</script>
+<script src="{% static 'mdb/mdb.js' %}"></script>
+<script src="{% static 'mdb/table.js' %}"></script>
+
+    <script>
+        new DataTable('#table1', {
+            pagingType: 'full_numbers'
+        });
+        new DataTable('#table2', {
+            pagingType: 'full_numbers'
+        });
+
+
+    </script>
+</body>
+
+      {% endblock scripts %}

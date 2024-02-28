@@ -1,13 +1,37 @@
-# karnama
-"Karnama: An Open-Source, AI-Based Smart Dashboard with a Flexible Architecture Covering Data Collection, Preprocessing, Streaming, Storage, AI Algorithms, Visualization, and What-IF Analysis. GPL3 Licensed for Educational, Research, and Commercial Use."<br>
-Karnama, an AI-based smart dashboard, covers the following seven layers in its flexible architecture:<br>
-1- Data Collection Layer: Gathering information from various sources and in different formats such as databases, log files, online resources, and APIs.<br>
-2- Data Preprocessing Layer: Applying necessary modifications to the collected data.<br>
-3- Streaming Data Processing Layer: Processing data in a streaming manner as required.<br>
-4- Data Storage Layer: Storing data in SQL and No-SQL repositories.<br>
-5- Artificial Intelligence and Data Mining Algorithms Application Layer.<br>
-6- Visualization and Management Dashboards Layer.<br>
-7- What-IF Dashboard Layer.<br>
-<br>
-This project is open-source and provided under the GPL3 license. You are free to use it in educational, research, and commercial projects or even sell it under this license.
-for more information you could check https://irankarnama.com<br>
+# Project Name: Database to Elasticsearch Search with Django Template Visualization
+
+## Overview
+This project is designed to retrieve data from Elasticsearch and visualize it using Django. It retrieves and visualizes data using a Django template and visualizations. Each HTML file includes explanations for inventory, finance, and sales data.
+
+## Features
+- Retrieves and visualizes data using Django template and Visualizations.
+- Provides detailed explanations and insights into inventory, finance, and sales data through HTML files.
+
+## Installation
+1. Clone the repository: `https://github.com/irankarnama/karnama`
+2. Install the required dependencies: `pip install -r requirements.txt`
+3. Set up Elasticsearch with the necessary configurations.
+4. Run the Django application: `python manage.py runserver`
+
+## Usage
+1. Access the dashboard to view the transferred and visualized data.
+2. Perform searches using the Elasticsearch search engine.
+3. Explore the inventory, finance, and sales data insights provided in the HTML files.
+
+## Contributions
+Contributions are welcome! If you would like to contribute to this project, please follow these steps:
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature-enhancement`
+3. Commit your changes: `git commit -am 'Add new feature'`
+4. Push to the branch: `git push origin feature-enhancement`
+5. Submit a pull request.
+
+## License
+This project is licensed under the GPL ver3.0 License - see the [LICENSE.md](LICENSE.md) file for details.
+
+## Authors
+- alireza kazemi (https://github.com/irankarnama/karnama): Project Lead
+- reyhane ayazpour (https://github.com/ReyhaneAyazpour): Backend Developer
+
+## Acknowledgements
+Special thanks to the contributors and supporters of this project.

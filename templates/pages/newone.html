@@ -1,0 +1,25 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>استاد</title>
+</head>
+{% block content %}
+<body>
+
+    <label >درصد داده های آموزشی</label>
+    <input type="text">
+
+    <form method="post">
+        <input type="text" id="name" name="name">
+        {% csrf_token %}
+        <input type="submit" id="emal">
+    </form>
+<div id="description" style="display: inline ;  border: #cbc7c7 1px solid; float: left; padding: 20px; border-radius: 5rem; max-width: 300px"></div>
+<div id="newelements"></div>
+</body>
+
+{{ name }}
+{% endblock %}
+</html>
